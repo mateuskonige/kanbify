@@ -22,8 +22,9 @@ export const Container = styled.div`
     border-radius: 4px;
   }
 
-  header {
+  .modal-header {
     height: 72px;
+    
     padding: 0 15px;
     border-bottom: 1px solid rgba(0,0,0,0.05);
   }
@@ -41,22 +42,24 @@ export const Container = styled.div`
       input {
         font-size: 16px;
         padding: 8px 4px;
-        border: 1px solid  #3b5bfd;
       }
     }
   }
 
   footer {
     padding: 15px;
-    
+    background-color: #eee;
+    border-radius: 4px;
+
     button {
       width: 100%;
       height: 42px;
-      border-radius: 18px;
+      border-radius: 4px;
       background: #3b5bfd;
       border: 0;
       cursor: pointer;
       color: #fff;
+      font-weight: 500;
     }
   }
 `;

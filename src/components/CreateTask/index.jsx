@@ -1,17 +1,14 @@
 import { useContext, useState } from 'react';
 import { MdClose } from 'react-icons/md';
 import { Container } from './styles';
-import { loadLists } from '../../services/api'
 import BoardContext from '../Board/context';
-
-const data = loadLists();
 
 export function CreateTask({ handleModal }) {
   const [title, setTitle] = useState('')
   const [color, setColor] = useState('')
   const { addTask } = useContext(BoardContext);
 
-  const addTaskToList = () => {
+  const save = () => {
     if(title === '' && color === '') {
       return;
     }
@@ -41,7 +38,7 @@ export function CreateTask({ handleModal }) {
         </div>
       </main>
       <footer>
-        <button onClick={addTaskToList}>Salvar</button>
+        <button onClick={save}>Salvar</button>
       </footer>
     </section>
   </Container>
