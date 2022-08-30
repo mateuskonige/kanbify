@@ -23,7 +23,7 @@ export const Container = styled.div`
   }
 
   header {
-    height: 62px;
+    height: 72px;
     padding: 0 15px;
     border-bottom: 1px solid rgba(0,0,0,0.05);
   }
@@ -36,15 +36,19 @@ export const Container = styled.div`
     div {
       display: flex;
       flex-direction: column;
+      margin-top: 15px;
 
       input {
-        padding: 4px 8px
+        font-size: 16px;
+        padding: 8px 4px;
+        border: 1px solid  #3b5bfd;
       }
     }
   }
 
   footer {
     padding: 15px;
+    
     button {
       width: 100%;
       height: 42px;

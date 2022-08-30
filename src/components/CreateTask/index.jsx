@@ -1,24 +1,22 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { MdClose } from 'react-icons/md';
 import { Container } from './styles';
 import { loadLists } from '../../services/api'
+import BoardContext from '../Board/context';
+
 const data = loadLists();
 
 export function CreateTask({ handleModal }) {
   const [title, setTitle] = useState('')
   const [color, setColor] = useState('')
-
+  const { addTask } = useContext(BoardContext);
 
   const addTaskToList = () => {
     if(title === '' && color === '') {
       return;
     }
 
-    data[0].cards.push({
-      id: data[0].cards.length + 1,
-      content: title,
-      labels: [color],
-    })
+    addTask(title, color);
 
     document.getElementById('closeButton').click()
   }

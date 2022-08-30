@@ -21,9 +21,19 @@ export default function Board() {
       draft[toList].cards.splice(to, 0, dragged);
     }))
   }
+
+  function addTask(title, color) {
+    setLists(produce(lists, draft => {
+      draft[0].cards.push({
+        id: draft[0].cards.length + 1,
+        content: title,
+        labels: [color],
+      });
+    }))
+  }
   
   return (
-    <BoardContext.Provider value={{ lists, move }}>
+    <BoardContext.Provider value={{ lists, move, addTask }}>
       <Container>
         {lists.map((list, index) => <List key={list.title} index={index} data={list} />)}
       </Container>
