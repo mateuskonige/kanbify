@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 
-import { MdAdd, MdClose } from 'react-icons/md'
+import { MdAdd } from 'react-icons/md'
 import Card from '../Card'
+import { CreateTask } from '../CreateTask'
 
-import { Container, ModalContainer } from './styles'
+import { Container } from './styles'
 
 export default function List({ data, index: listIndex }) {
   const [createTask, setCreateTask] = useState(false)
@@ -29,25 +30,9 @@ export default function List({ data, index: listIndex }) {
         )}
       </header>
      
-{createTask && (
-  <ModalContainer>
-    <section>
-      <header>
-      <h2>Adicionar tarefa</h2>
-      <button onClick={handleModal}><MdClose size={24} color="#fff" /></button>
-      </header>
-      <main>
-        <div>
-          <label htmlFor="">Título</label>
-          <input type="text" />
-
-          <label htmlFor="">Cor</label>
-          <input type="color" />
-        </div>
-      </main>
-    </section>
-  </ModalContainer>
-)}
+      {createTask && (
+      <CreateTask handleModal={handleModal} />
+      )}
      
       <ul>
         {data.cards.map((card, index) => (
