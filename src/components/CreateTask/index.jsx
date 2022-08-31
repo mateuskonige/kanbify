@@ -29,12 +29,10 @@ export function CreateTask({ handleModal }) {
         <div>
           <label htmlFor="">Título</label>
           <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-          {title}
         </div>
         <div>
           <label htmlFor="">Cor</label>
           <input type="color" value={color} onChange={(e) => setColor(e.target.value)}/>
-          {color}
         </div>
       </main>
       <footer>
