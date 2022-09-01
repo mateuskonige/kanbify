@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { MdClose } from 'react-icons/md';
 import { Container } from './styles';
 import BoardContext from '../Board/context';
@@ -7,6 +7,7 @@ export function CreateTask({ handleModal }) {
   const [title, setTitle] = useState('')
   const [color, setColor] = useState('')
   const { addTask } = useContext(BoardContext);
+  const closeButton = useRef(null)
 
   const save = () => {
     if(title === '' && color === '') {
@@ -15,7 +16,7 @@ export function CreateTask({ handleModal }) {
 
     addTask(title, color);
 
-    document.getElementById('closeButton').click()
+    closeButton.current.click()
   }
   
   return (
@@ -23,7 +24,7 @@ export function CreateTask({ handleModal }) {
     <section>
       <header className='modal-header'>
       <h2>Adicionar tarefa</h2>
-      <button id='closeButton' onClick={handleModal}><MdClose size={24} color="#fff" /></button>
+      <button ref={closeButton} onClick={handleModal}><MdClose size={24} color="#fff" /></button>
       </header>
       <main>
         <div>
