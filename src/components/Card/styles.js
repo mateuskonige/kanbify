@@ -28,7 +28,9 @@ export const Container = styled.div`
     margin-top: 5px;
   }
 
-  ${props => props.isDragging && css`
+  ${(props) =>
+    props.isDragging &&
+    css`
     border: 2px dashed rgba(0, 0, 0, 0.2);
     padding-top: 31px;
     border-radius: 0;
@@ -47,5 +49,5 @@ export const Label = styled.span`
   height: 10px;
   border-radius: 2px;
   display: inline-block;
-  background: ${props => props.color};
+  background: ${(props) => props.color};
 `;
